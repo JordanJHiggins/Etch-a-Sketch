@@ -1,10 +1,8 @@
 // Define grid container
 const container = document.querySelector(".container");
 // Define grid items
-const items = document.createElement("div");
-
-items.classList.add("items");
-items.innerText = "item";
+const cell = document.createElement("div");
+cell.classList.add("cell");
 
 // Variables for setting grid size
 let gridSize = 16;
@@ -13,7 +11,7 @@ let numOfElements = gridSize * gridSize;
 //Adds specified number of grid items to grid
 function createGrid(numOfElements) {
   for (i = 0; i < numOfElements; i++) {
-    container.appendChild(items.cloneNode(true));
+    container.appendChild(cell.cloneNode(true));
   }
 }
 
@@ -27,3 +25,12 @@ function setGridSize() {
 
 setGridSize();
 createGrid(numOfElements);
+
+// Adds eventlistener to container
+function addListener() {
+  container.addEventListener("mouseover", function handleEvent(event) {
+    event.target.classList.add("color-items");
+  });
+}
+
+addListener();
