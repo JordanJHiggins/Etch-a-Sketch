@@ -1,5 +1,10 @@
 // Define grid container
 const container = document.querySelector(".container");
+
+// Define slider elements
+const slider = document.getElementById("range");
+let output = document.getElementById("output-value");
+output.innerHTML = slider.value;
 // Define grid items
 const cell = document.createElement("div");
 cell.classList.add("cell");
@@ -7,6 +12,11 @@ cell.classList.add("cell");
 // Variables for setting grid size
 let gridSize = 16;
 let numOfElements = gridSize * gridSize;
+
+// update slider value
+slider.oninput = function () {
+  output.innerHTML = this.value;
+};
 
 //Adds specified number of grid items to grid
 function createGrid(numOfElements) {
