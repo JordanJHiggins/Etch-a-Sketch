@@ -2,9 +2,10 @@
 const container = document.querySelector(".container");
 
 // Define slider elements
-const slider = document.getElementById("range");
-let output = document.getElementById("output-value");
+const slider = document.getElementById("myRange");
+const output = document.getElementById("output-value");
 output.innerHTML = slider.value;
+
 // Define grid items
 const cell = document.createElement("div");
 cell.classList.add("cell");
@@ -13,14 +14,20 @@ cell.classList.add("cell");
 let gridSize = 16;
 let numOfElements = gridSize * gridSize;
 
-// update slider value
+//  update grid size based on slider change
+slider.addEventListener("change", function () {
+  gridSize = slider.value;
+  setGridSize(this.value);
+});
+
+// update on screen slider value
 slider.oninput = function () {
   output.innerHTML = this.value;
 };
 
 //Adds specified number of grid items to grid
 function createGrid(numOfElements) {
-  for (i = 0; i < numOfElements; i++) {
+  for (i = gridSize; i < numOfElements; i++) {
     container.appendChild(cell.cloneNode(true));
   }
 }
@@ -29,12 +36,9 @@ function createGrid(numOfElements) {
 function setGridSize() {
   container.setAttribute(
     "style",
-    `grid-template: repeat(${gridSize}, 1fr) / repeat(${gridSize}, 1fr) `
+    `grid-template: repeat(${gridSize}, 1fr) / repeat(${gridSize}, 1fr )`
   );
 }
-
-setGridSize();
-createGrid(numOfElements);
 
 // Adds eventlistener to container
 function addListener() {
@@ -44,3 +48,5 @@ function addListener() {
 }
 
 addListener();
+setGridSize();
+createGrid(numOfElements);
