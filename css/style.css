@@ -12,7 +12,10 @@
 
 .color-items {
   background-color: black;
+  transition: background-color 0.6s linear;
 }
+
+/*  Future Feature
 
 .slide-container {
   width: 100%;
@@ -52,3 +55,4 @@
   background: #04aa6d;
   cursor: pointer;
 }
+*/
