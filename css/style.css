@@ -2,12 +2,13 @@
   width: 660px;
   height: 660px;
   display: grid;
-  grid-template: repeat(0, 1fr) / repeat(0, 1fr);
+  grid-template-columns: repeat(0, 1fr);
+  grid-template-rows: repeat(0, 1fr);
 }
 
 .cell {
   background-color: beige;
-  border: 1px solid grey;
+  border: 0.2px solid grey;
 }
 
 .color-items {

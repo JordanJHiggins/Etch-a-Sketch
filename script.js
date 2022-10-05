@@ -6,23 +6,19 @@ const cell = document.createElement("div");
 cell.classList.add("cell");
 
 // Variables for setting grid size
-let gridSize = window.prompt("Select a grid size 1-100:", 16);
-let numOfElements = gridSize * gridSize;
+let gridSize = 0;
 
-// Set grid dimensions
-function setGridSize() {
-  container.setAttribute(
-    "style",
-    `grid-template: repeat(${gridSize}, 1fr) / repeat(${gridSize}, 1fr )`
-  );
-}
 //Adds specified number of grid items to grid
-function createGrid(numOfElements) {
-  for (i = 0; i < numOfElements; i++) {
-    container.appendChild(cell.cloneNode(true));
+function createGrid(gridSize) {
+  let gridDimension = gridSize * gridSize;
+  for (i = 0; i < gridDimension; i++) {
+    container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+    container.insertAdjacentElement("beforeend", cell.cloneNode(true));
   }
 }
 
+createGrid(12);
 // change cell color
 function addListener() {
   container.addEventListener("mouseover", function handleEvent(event) {
@@ -30,9 +26,11 @@ function addListener() {
   });
 }
 
+function changeGridSize() {
+  gridSize = window.prompt("choose a new grid size 1-100");
+}
+// changeGridButton.addEventListener("click", changeGrid);
 addListener();
-setGridSize();
-createGrid(numOfElements);
 
 // Future Feature
 
