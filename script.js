@@ -1,6 +1,7 @@
 // Define grid container
 const container = document.querySelector(".container");
 
+const eraserButton = document.querySelector(".eraser-button");
 // Define slider elements
 const slider = document.getElementById("myRange");
 const output = document.getElementById("output-value");
@@ -24,14 +25,20 @@ function createGrid(gridSize) {
 }
 createGrid(gridSize);
 
-// change cell color
-function addListener() {
-  container.addEventListener("mouseover", function handleEvent(event) {
+// change cell color to black
+function colorBlack() {
+  container.addEventListener("mouseover", (event) => {
     event.target.classList.add("color-items");
   });
 }
 
-addListener();
+function eraser() {
+  container.addEventListener("mouseover", (event) => {
+    event.target.classList.remove("color-items");
+  });
+}
+
+colorBlack();
 
 //  update grid size based on slider change.
 slider.addEventListener("change", function (gridSize) {
