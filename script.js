@@ -1,7 +1,6 @@
 // Define grid container
 const container = document.querySelector(".container");
 
-const eraserButton = document.querySelector(".eraser-button");
 // Define slider elements
 const slider = document.getElementById("myRange");
 const output = document.getElementById("output-value");
@@ -23,7 +22,6 @@ function createGrid(gridSize) {
     container.insertAdjacentElement("beforeend", cell.cloneNode(true));
   }
 }
-createGrid(gridSize);
 
 // change cell color to black
 function colorBlack() {
@@ -38,8 +36,16 @@ function eraser() {
   });
 }
 
-colorBlack();
-
+function randColor() {
+  container.addEventListener("mouseover", (event) => {
+    event.target.style.backgroundColor =
+      "#" +
+      Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0")
+        .toUpperCase();
+  });
+}
 //  update grid size based on slider change.
 slider.addEventListener("change", function (gridSize) {
   gridSize = slider.value;
@@ -50,3 +56,6 @@ slider.addEventListener("change", function (gridSize) {
 slider.oninput = function () {
   output.innerHTML = this.value;
 };
+
+colorBlack();
+createGrid(gridSize);
