@@ -10,10 +10,8 @@ output.innerHTML = slider.value;
 const cell = document.createElement("div");
 cell.classList.add("cell");
 
-// Variables for setting grid size
 let gridSize = 16;
 
-//Adds specified number of grid items to grid
 function createGrid(gridSize) {
   let gridDimension = gridSize * gridSize;
   for (i = 0; i < gridDimension; i++) {
@@ -23,16 +21,19 @@ function createGrid(gridSize) {
   }
 }
 
-// change cell color to black
+// Color selections
 function colorBlack() {
   container.addEventListener("mouseover", (event) => {
     event.target.classList.add("color-items");
+    event.target.style.removeProperty("background-color");
   });
 }
 
 function eraser() {
   container.addEventListener("mouseover", (event) => {
     event.target.classList.remove("color-items");
+    event.target.style.removeProperty("background-color");
+    event.target.classList.add("cell-reset");
   });
 }
 
@@ -52,10 +53,9 @@ slider.addEventListener("change", function (gridSize) {
   createGrid(gridSize);
 });
 
-//  update on screen slider value.
+// update on screen slider value.
 slider.oninput = function () {
   output.innerHTML = this.value;
 };
 
-colorBlack();
 createGrid(gridSize);
