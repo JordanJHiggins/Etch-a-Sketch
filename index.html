@@ -9,20 +9,30 @@
     <title>Etch-a-Sketch</title>
   </head>
   <body>
-    <div class="container"></div>
-    <button class="eraser-button" onclick="eraser()">ERASER</button>
-    <button class="color-black" onclick="colorBlack()">BLACK</button>
-    <button class="color-random" onclick="randColor()">RANDOM</button>
-    <div class="slide-container">
-      <input
-        type="range"
-        min="16"
-        max="100"
-        value="16"
-        class="slider"
-        id="myRange"
-      />
+    <div class="flex-wrapper">
+      <div class="content-flex">
+        <div class="container"></div>
+
+        <div class="selection-flex">
+          <div class="button-flex">
+            <button class="eraser-button" onclick="eraser()">ERASER</button>
+            <button class="color-black" onclick="colorBlack()">BLACK</button>
+            <button class="color-random" onclick="randColor()">RANDOM</button>
+          </div>
+
+          <div class="slide-container">
+            <input
+              type="range"
+              min="16"
+              max="100"
+              value="16"
+              class="slider"
+              id="myRange"
+            />
+            <div id="output-value"></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="output-value"></div>
   </body>
 </html>
