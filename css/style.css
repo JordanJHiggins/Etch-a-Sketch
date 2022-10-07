@@ -31,9 +31,9 @@ button {
   color: beige;
   background-color: #816bb3;
   border: 2px solid #341f66;
-  border-radius: 25px;
+  border-radius: 76% 24% 69% 31% / 52% 56% 44% 48%;
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 10px;
+  padding: 20px;
 }
 
 button:active {
@@ -67,7 +67,7 @@ button:active {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #824dff;
+  background: beige;
   cursor: pointer;
 }
 
@@ -75,6 +75,12 @@ button:active {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #824dff;
+  background: beige;
   cursor: pointer;
+}
+
+#output-value {
+  font-family: Arial, Helvetica, sans-serif;
+  color: beige;
+  font-size: 20px;
 }
