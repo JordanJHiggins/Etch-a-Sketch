@@ -4,7 +4,7 @@ const container = document.querySelector(".container");
 // Define slider elements
 const slider = document.getElementById("myRange");
 const output = document.getElementById("output-value");
-output.innerHTML = slider.value;
+output.innerHTML = `${slider.value} x ${slider.value}`;
 
 // Define grid items
 const cell = document.createElement("div");
@@ -47,6 +47,14 @@ function randColor() {
         .toUpperCase();
   });
 }
+
+function clearBoard() {
+  let containerElement = container.querySelectorAll("div");
+
+  containerElement.forEach(
+    (containerElement) => (containerElement.style.backgroundColor = "beige")
+  );
+}
 //  update grid size based on slider change.
 slider.addEventListener("change", function (gridSize) {
   gridSize = slider.value;
@@ -55,7 +63,7 @@ slider.addEventListener("change", function (gridSize) {
 
 // update on screen slider value.
 slider.oninput = function () {
-  output.innerHTML = this.value;
+  output.innerHTML = `${this.value} x ${this.value}`;
 };
 
 createGrid(gridSize);
