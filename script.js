@@ -1,13 +1,9 @@
-// Define grid container
 const container = document.querySelector(".container");
-
-// Define slider elements
 const slider = document.getElementById("myRange");
 const output = document.getElementById("output-value");
-output.innerHTML = `${slider.value} x ${slider.value}`;
-
-// Define grid items
 const cell = document.createElement("div");
+
+output.innerHTML = `${slider.value} x ${slider.value}`;
 cell.classList.add("cell");
 
 let gridSize = 16;
@@ -20,8 +16,16 @@ function createGrid(gridSize) {
     container.insertAdjacentElement("beforeend", cell.cloneNode(true));
   }
 }
-
-// Color selections
+function randomColor() {
+  container.addEventListener("mouseover", (event) => {
+    event.target.style.backgroundColor =
+      "#" +
+      Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0")
+        .toUpperCase();
+  });
+}
 function colorBlack() {
   container.addEventListener("mouseover", (event) => {
     event.target.classList.add("color-items");
@@ -33,35 +37,20 @@ function eraser() {
   container.addEventListener("mouseover", (event) => {
     event.target.classList.remove("color-items");
     event.target.style.removeProperty("background-color");
-    event.target.classList.add("cell-reset");
-  });
-}
-
-function randColor() {
-  container.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor =
-      "#" +
-      Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, "0")
-        .toUpperCase();
   });
 }
 
 function clearBoard() {
-  let containerElement = container.querySelectorAll("div");
+  let gridDiv = container.querySelectorAll("div");
 
-  containerElement.forEach(
-    (containerElement) => (containerElement.style.backgroundColor = "beige")
-  );
+  gridDiv.forEach((gridDiv) => (gridDiv.style.backgroundColor = "beige"));
 }
-//  update grid size based on slider change.
+
 slider.addEventListener("change", function (gridSize) {
   gridSize = slider.value;
   createGrid(gridSize);
 });
 
-// update on screen slider value.
 slider.oninput = function () {
   output.innerHTML = `${this.value} x ${this.value}`;
 };
