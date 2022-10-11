@@ -16,6 +16,7 @@ function createGrid(gridSize) {
     container.insertAdjacentElement("beforeend", cell.cloneNode(true));
   }
 }
+
 function randomColor() {
   container.addEventListener("mouseover", (event) => {
     event.target.style.backgroundColor =
@@ -26,6 +27,7 @@ function randomColor() {
         .toUpperCase();
   });
 }
+
 function colorBlack() {
   container.addEventListener("mouseover", (event) => {
     event.target.classList.add("color-items");
