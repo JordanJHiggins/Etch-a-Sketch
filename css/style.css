@@ -3,7 +3,7 @@ body {
   background-color: #5c4d80;
   display: flex;
   flex-direction: column;
-  align-self: center;
+  margin: 0;
 }
 
 /* Buttons */
@@ -23,6 +23,11 @@ button:active {
   transform: rotate(10deg);
 }
 
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: beige;
+  font-size: 1.2rem;
+}
 /* Grid */
 .container {
   width: 660px;
@@ -38,10 +43,6 @@ button:active {
 .cell {
   background-color: beige;
   outline: 0.1px solid grey;
-}
-
-.cell-reset {
-  background-color: beige;
 }
 
 .color-items {
@@ -97,8 +98,25 @@ button:active {
   font-size: 20px;
 }
 
-/* Flex box */
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  justify-content: center;
+  gap: 20px;
+  background-color: #341f66;
+  width: 100vw;
+  height: 5vh;
+}
 
+.github-logo {
+  transition: transform 0.5s ease-in-out;
+}
+.github-logo:hover {
+  transform: rotate(360deg);
+}
+/* Flex box */
 .flex-wrapper {
   height: 100vh;
   display: flex;
