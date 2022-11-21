@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Titan+One);
 body {
+  height: 100vh;
   background-color: #5c4d80;
   display: flex;
   flex-direction: column;
@@ -133,7 +134,7 @@ p {
   border-radius: 21% 79% 28% 72% / 53% 12% 88% 47%;
   box-shadow: 10px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 25px;
-  margin-bottom: 15px;
+  margin-bottom: 120px;
   color: beige;
   font-size: 70px;
   text-shadow: 2px 2px #000000;
@@ -144,7 +145,8 @@ p {
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-evenly;
-  margin-bottom: 150px;
+  /* margin-bottom: 150px; */
+  height: fit-content;
 }
 .slide-container {
   display: flex;
